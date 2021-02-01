@@ -1,0 +1,50 @@
+.ejs {
+    margin: 10px 0;
+}
+.ejs * {
+    box-sizing: border-box;
+}
+
+.ejs .edit-wrapper {
+    border: solid 1px #ff9900;
+    border-radius: 3px;
+    position: relative;
+}
+.ejs .edit-wrapper textarea {
+    resize: vertical;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+}
+.ejs .edit-wrapper textarea:focus {
+    outline: none;
+}
+.ejs .edit-wrapper button.save {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline;
+    width: auto;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-bottom-left-radius: 3px;
+}
+.ejs .edit-wrapper button.save:hover {
+    background-color: #eea63a;
+}
+
+
+.ejs div.editable {
+    border: solid 1px transparent;
+    min-height: 10px;
+}
+
+.ejs div.editable:hover {
+    border: solid 1px #ff9900;
+    cursor: pointer;
+    border-radius: 3px;
+}

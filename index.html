@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditJS</title>
+    <link href="edit.css" rel="stylesheet" type="text/css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+        * {
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin: 20px 0;
+            /* https://www.inwebson.com/css3/css-tricks-for-headings-fonts-and-text-styling/ */
+            color: #b0cc63;
+            text-shadow: 0 0 5px #8ab121, 0 0 10px #8ab121,
+                    0 0 20px #8ab121, 0 0 30px #8ab121,
+                    0 0 40px #8ab121;
+        }
+        code {
+            font-family: monospace !important;
+        }
+        a, a:visited {
+            text-decoration: underline;
+            color: #8ab121;
+        }
+        a:hover, a:active {
+            color: #9fbb51;
+        }
+        body {
+            font-size: 0.97em;
+            background-color: #2a3d3d;
+            color: white;
+        }
+        .container {
+            margin: 0 auto;
+            max-width: 600px;
+            padding: 0 10px;
+        }
+        #edited-note {
+            color: #8ab121;
+        }
+        
+        /* changing editjs colors */
+        .ejs .edit-wrapper {
+            border-color: #2d8580;
+        }
+        .ejs div.editable:hover {
+            border-color: #2d8580;
+        }
+        .ejs .edit-wrapper button.save {
+            background-color: #2d8580;
+        }
+        .ejs .edit-wrapper button.save:hover {
+            background-color: #38a19c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EditJS - Simple editable text with plain JS</h1>
+        <code id="edited-note"></code>
+
+        <div class="ejs" id="id-number-1">These are editable fields. You can click on them to edit and save with CTRL+S or clicking the save button (top right).</div>
+        <div class="ejs" id="id-number-2">This can be achieved only including a JS and a CSS file into your HTML and calling a JS function.</div>
+        <div class="ejs" id="id-number-3">For creating an editable text, just surround it with a div, give it an id and "ejs" as class name.</div>
+        <div class="ejs" id="id-number-4">You can access the value with the id or declaring a listener which is called on save (you can also access everything at once).</div>
+        <div class="ejs" id="id-number-5">This library does only make editable text. No fancy other stuff.</div>
+        <div class="ejs" id="id-number-7">For seeing a simple example, just open this pages source code.</div>
+        <div class="ejs" id="id-number-8">Attention: Current code is just a single day project!</div>
+        <div class="ejs" id="id-number-8">Attention: This is not optimized / tested for touch devices!</div>
+        <br>
+        <a href="https://github.com/mbndr/editjs">Github</a>
+    </div>
+
+    <script src="edit.js"></script>
+    <script>
+        window.onload = function() {
+            const editedNote = document.getElementById("edited-note");
+
+            function onChange(id, value) {
+                editedNote.innerText = "Last edited: " + id;
+            }
+
+            const editjs = new EditJS({
+                activeIds: [],
+                onChange: onChange
+            });
+
+            /*
+            for getting all data call editjs.getValues();
+            for getting single data call editjs.getValue("id-number-1");
+            */
+        }
+    </script>
+</body>
+</html>
