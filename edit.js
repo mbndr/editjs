@@ -103,7 +103,7 @@ EditJS = (function() {
 
             this.setEventListener(id);
         }
-    }
+    };
 
     // set event listener on field
     EditJS.prototype.setEventListener = function(id) {
@@ -130,12 +130,26 @@ EditJS = (function() {
                 self.createElement(id);
             });
         }
-    }
+    };
+
+    EditJS.prototype.setValue = function(id, value) {
+        if (this.fields[id]) {
+            this.fields[id].value = value;
+            this.createElement(id);            
+        }
+    };
+
+    EditJS.prototype.setActive = function(id, active) {
+        if (this.fields[id]) {
+            this.fields[id].mode = active === true ? MODE_EDIT : MODE_TEXT;
+            this.createElement(id);                
+        }
+    };
 
     EditJS.prototype.getValue = function(id) {
         const field = this.fields[id];
         return field.value || undefined;
-    }
+    };
 
     EditJS.prototype.getValues = function() {
         let ret = {};
@@ -146,7 +160,7 @@ EditJS = (function() {
         }
 
         return ret;
-    }
+    };
 
     return EditJS;
 })();

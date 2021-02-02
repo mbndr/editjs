@@ -37,7 +37,7 @@
             color: white;
         }
         .container {
-            margin: 0 auto;
+            margin: 10px auto;
             max-width: 600px;
             padding: 0 10px;
         }
@@ -70,11 +70,14 @@
         <div class="ejs" id="id-number-3">For creating an editable text, just surround it with a div, give it an id and "ejs" as class name.</div>
         <div class="ejs" id="id-number-4">You can access the value with the id or declaring a listener which is called on save (you can also access everything at once).</div>
         <div class="ejs" id="id-number-5">This library does only make editable text. No fancy other stuff.</div>
-        <div class="ejs" id="id-number-7">For seeing a simple example, just open this pages source code.</div>
-        <div class="ejs" id="id-number-8">Attention: Current code is just a single day project!</div>
+        <div class="ejs" id="id-number-6">For seeing a simple example, just open this pages source code.</div>
+        <div class="ejs" id="id-number-7">Attention: Current code is just a single day project!</div>
         <div class="ejs" id="id-number-8">Attention: This is not optimized / tested for touch devices!</div>
+        <div class="ejs" id="id-number-9"></div>
         <br>
         <a href="https://github.com/mbndr/editjs">Github</a>
+        |
+        <a href="https://github.com/mbndr/editjs/blob/master/index.html">Example code (for this page)</a>
     </div>
 
     <script src="edit.js"></script>
@@ -87,9 +90,12 @@
             }
 
             const editjs = new EditJS({
-                activeIds: [],
+                activeIds: ["id-number-4"],
                 onChange: onChange
             });
+
+            editjs.setValue("id-number-9", "This value was added with JS!");
+            editjs.setActive("id-number-2", true);
 
             /*
             for getting all data call editjs.getValues();
